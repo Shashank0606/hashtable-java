@@ -1,4 +1,4 @@
-package com.datastructure.hashtable;
+package com.bridgelabz.hashtable;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,6 @@ public class MyHashTable<K, V> {
 
     // Method to search the word in LinkedList
     // key : key to search
-
     public MyMapNode<K, V> search(K key) {
         MyMapNode<K, V> currentNode = head;
         while (currentNode != null) {
@@ -72,6 +71,7 @@ public class MyHashTable<K, V> {
 
     }
 
+    // Method to append value to Linked List
     // myNode : value to append
     private void append(MyMapNode<K, V> myNode) {
         if (this.head == null)
@@ -82,6 +82,24 @@ public class MyHashTable<K, V> {
             this.tail.setNext(myNode);
             this.tail = myNode;
         }
+    }
+
+    // Method to remove a word
+    // key : word to be removed
+    public void remove(K key) {
+        MyMapNode<K, V> currentNode = head;
+        MyMapNode<K, V> previousNode = null;
+        while (currentNode != null && currentNode.getKey().equals(key)) {
+            head = currentNode.getNext();
+        }
+        while (currentNode != null && !(currentNode.getKey().equals(key))) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        if (currentNode != null)
+            previousNode.next = currentNode.next;
+        if (currentNode == null)
+            System.out.println("Word not found");
     }
 
     public String toString() {
