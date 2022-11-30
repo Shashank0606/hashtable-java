@@ -3,14 +3,12 @@ package com.bridgelabz.hashtable;
 public class Hashtable {
 
     public static void main(String[] args) {
+        System.out.println("Welcome To HashTable Program");
         MyHashTable<String, Integer> hashTable = new MyHashTable();
-        String sentence = "To be or not to be";
+        String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
 
-        // Storing given sentence in an array.
-        // Converting the sentence to lower case and removing spaces.
-
+        // Converting the para words to lower case and removing spaces.
         String[] sentenceArray = sentence.toLowerCase().split(" ");
-
         // Iterating over the array.
         for (String word : sentenceArray) {
             Integer value = hashTable.get(word);
